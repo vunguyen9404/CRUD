@@ -85,14 +85,21 @@ namespace DVDShop.Views
             this.AddListProduct();
         }
 
-        private void EditProduct_Click(object sender, RoutedEventArgs e)
+        private async void EditProduct_Click(object sender, RoutedEventArgs e)
         {
-
+            var btn = sender as Button;
+            var productSelect = ListProduct.First(x => x.ProductID == int.Parse(btn.Tag.ToString()));
+            var product = new ProductDialog(conn, productSelect);
+            product.Closing += this.UpdateListProduct;
+            await product.ShowAsync();
         }
 
         private void DeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-
+            var btn = sender as Button;
+            var product = ListProduct.First(x => x.ProductID == int.Parse(btn.Tag.ToString()));
+            ListProduct.Remove(product);
+            conn.DeleteProduct(product);
         }
     }
 }

@@ -19,7 +19,7 @@
         <TextBox Name="tbProductPrice"  PlaceholderText="Product Price" Margin="0, 10" />
         <TextBox Name="tbProductImage" PlaceholderText="Product Link Images" Margin="0, 10" />
         <TextBox Name="tbProductTrailer" PlaceholderText="Product Link Trailer" Margin="0, 10" />
-        <ComboBox Name="cbCategory" Margin="0, 10" HorizontalAlignment="Stretch" ItemsSource="{x:Bind ListCategory}" PlaceholderText="Select Category">
+        <ComboBox Name="cbCategory" Margin="0, 10" HorizontalAlignment="Stretch" ItemsSource="{x:Bind ListCategory}" PlaceholderText="Select Category" SelectionChanged="cbCategory_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate x:DataType="data:Category">
                     <TextBlock Text="{x:Bind CategoryName}" />

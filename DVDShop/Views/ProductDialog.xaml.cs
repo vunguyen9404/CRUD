@@ -30,6 +30,7 @@ namespace DVDShop.Views
         {
             this.InitializeComponent();
         }
+
         public ProductDialog(SqlConnection conn)
         {
             this.InitializeComponent();
@@ -37,15 +38,23 @@ namespace DVDShop.Views
             ListCategory = new ObservableCollection<Category>();
             ListSubCategory = new ObservableCollection<SubCategory>();
             this.GetListCategory();
-            this.GetListSubCategory();
+
+
         }
+
         public ProductDialog(SqlConnection conn, Product product)
         {
+            this.conn = conn;
             this.InitializeComponent();
             ListCategory = new ObservableCollection<Category>();
             ListSubCategory = new ObservableCollection<SubCategory>();
             this.GetListCategory();
-            this.GetListSubCategory();
+
+            tbProductName.Text = product.ProductName;
+            tbProductDesc.Text = product.ProductDesc;
+            tbProductImage.Text = product.ProductImage;
+            tbProductTrailer.Text = product.ProductTrailer;
+            tbProductPrice.Text = product.ProductPrice + "";
         }
 
         private async void GetListCategory()
@@ -61,7 +70,7 @@ namespace DVDShop.Views
             }
             catch
             {
-                await new MessageDialog("Something wrong !").ShowAsync();
+                await new MessageDialog("Get Category Faild ! Something wrong !").ShowAsync();
             }
         }
 
@@ -71,18 +80,33 @@ namespace DVDShop.Views
             {
                 var listData = conn.GetListSubCategory();
                 ListSubCategory.Clear();
+                var itemC = cbCategory.SelectedItem as Category;
                 foreach (var item in listData)
                 {
-                    ListSubCategory.Add(item);
+                    if (item.Category.CategoryID == itemC.CategoryID)
+                    {
+                        ListSubCategory.Add(item);
+                    }
                 };
             }
             catch
             {
-                await new MessageDialog("Something wrong !").ShowAsync();
+                await new MessageDialog("Get SubCategory failed ! ..Something wrong !").ShowAsync();
             }
         }
 
-        private async void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            if (product != null)
+            {
+                this.EditProduct();
+            } else
+            {
+                this.AddProduct();
+            }
+        }
+
+        private async void AddProduct()
         {
             try
             {
@@ -99,7 +123,29 @@ namespace DVDShop.Views
             }
             catch
             {
-                await new MessageDialog("Something wrong !").ShowAsync();
+                await new MessageDialog("Add product failed !..Something wrong !").ShowAsync();
+            }
+        }
+
+        private async void EditProduct()
+        {
+            try
+            {
+                conn.UpdateProduct(new Product()
+                {
+                    ProductID = product.ProductID,
+                    ProductName = tbProductName.Text,
+                    ProductDesc = tbProductDesc.Text,
+                    ProductPrice = double.Parse(tbProductPrice.Text),
+                    ProductImage = tbProductImage.Text,
+                    ProductTrailer = tbProductTrailer.Text,
+                    Category = cbCategory.SelectedItem as Category,
+                    SubCategory = cbSubCategory.SelectedItem as SubCategory
+                });
+            }
+            catch
+            {
+                await new MessageDialog("Edit product failed ! Something wrong !").ShowAsync();
             }
         }
 
@@ -107,6 +153,9 @@ namespace DVDShop.Views
         {
         }
 
-        
+        private void cbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.GetListSubCategory();
+        }
     }
 }

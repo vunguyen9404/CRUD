@@ -132,6 +132,7 @@
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="Width" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="DVDShop.Views.ProductDialog" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image">

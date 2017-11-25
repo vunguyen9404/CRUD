@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\Pikalong\source\repos\DVDShop\DVDShop\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-11-22T06:05:57.721</Modified>
+      <Modified>2017-11-25T03:47:30.057</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Pikalong\source\repos\DVDShop\DVDShop\bin\x86\Debug\DVDShop.exe">
       <PackagePath>entrypoint\DVDShop.exe</PackagePath>
-      <Modified>2017-11-22T06:05:55.744</Modified>
+      <Modified>2017-11-25T03:47:29.219</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pikalong\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.0.1\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -755,7 +755,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pikalong\source\repos\DVDShop\DVDShop\bin\x86\Debug\DVDShop.xr.xml">
       <PackagePath>DVDShop.xr.xml</PackagePath>
-      <Modified>2017-11-22T06:05:55.408</Modified>
+      <Modified>2017-11-25T03:44:09.204</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -764,11 +764,11 @@
     <AppxPackagedFile Include="C:\Users\Pikalong\source\repos\DVDShop\DVDShop\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-11-22T06:05:57.012</Modified>
+      <Modified>2017-11-25T03:47:29.721</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pikalong\source\repos\DVDShop\DVDShop\bin\x86\Debug\Core\DVDShop.exe">
       <PackagePath>DVDShop.exe</PackagePath>
-      <Modified>2017-11-22T06:05:57.707</Modified>
+      <Modified>2017-11-25T03:47:30.051</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
